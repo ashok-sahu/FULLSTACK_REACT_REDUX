@@ -16,7 +16,7 @@ export const fetchAll = () => (dispatch) => {
         payload: res.data,
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err.response));
 };
 
 export const create = (data, onSuccess) => (dispatch) => {
@@ -50,7 +50,6 @@ export const update = (id, data, onSuccess) => (dispatch) => {
 };
 
 export const Delete = (id, data, onSuccess) => (dispatch) => {
-  console.log(id, data, onSuccess, dispatch);
   Api.postMessage()
     .delete(id, data)
     .then((res) => {

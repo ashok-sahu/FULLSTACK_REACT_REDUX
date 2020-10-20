@@ -37,6 +37,10 @@ const PostMessageForm = ({ classes, ...props }) => {
         }
     },[props.currentId])
 
+    var { values, setValues, handleInputChange, errors, setErrors,resetForm } = useForm(
+      initialFieldValues,props.setcurrentId
+    );
+  
   const validate = () => {
     let temp = { ...errors };
     temp.title = values.title ? "" : "this field is required";
@@ -46,10 +50,6 @@ const PostMessageForm = ({ classes, ...props }) => {
     });
     return Object.values(temp).every((x) => x === "");
   };
-
-  var { values, setValues, handleInputChange, errors, setErrors,resetForm } = useForm(
-    initialFieldValues,props.setCurrentId
-  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
